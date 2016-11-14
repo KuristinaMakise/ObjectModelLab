@@ -5,8 +5,6 @@ import { decod,
 	 } from '../../src/model';
 
 import  { data }  from './sensors_data'
-/*console.log(data.length);
-console.log(data[0].id);*/
 
 describe('Sensor model tests', () => {
     describe('notNull', () => {
@@ -20,7 +18,7 @@ describe('Sensor model tests', () => {
 		it('Type of object '+i+' shouldn\'t be null', () => {
 			expect(notNull(decod(data)[i][0].type)).toBe(true);
 		});
-		it('Type of object '+i+' shouldn\'t be null', () => {
+		it('Value/Values&Labels of object '+i+' shouldn\'t be null', () => {
 			expect(notNull(decod(data)[i][1].values)).toBe(true);
 		});
 		}
@@ -37,15 +35,15 @@ describe('Sensor model tests', () => {
 				expect(decod(data)[i][0].type).toBe(data[i].type);
 			});
 			if(typeof data[i].data.value !== 'undefined'){
-				it('Type of object '+i+' should be equal to '+data[i].data.value, () => {
+				it('Value of object '+i+' should be equal to '+data[i].data.value, () => {
 					expect(decod(data)[i][1].value).toBe(data[i].data.value);
 				});
 			}
 			else if(typeof data[i].data.values !== 'undefined'){
-				it('Type of object '+i+' should be equal to '+data[i].data.values, () => {
+				it('Values of object '+i+' should be equal to '+data[i].data.values, () => {
 					expect(decod(data)[i][1].values).toBe(data[i].data.values);
 				});
-				it('Type of object '+i+' should be equal to '+data[i].data.labels, () => {
+				it('Labels of object '+i+' should be equal to '+data[i].data.labels, () => {
 					expect(decod(data)[i][1].labels).toBe(data[i].data.labels);
 				});
 			}
