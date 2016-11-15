@@ -114,18 +114,22 @@ export const notNull = (value) =>
 
 export const notNullData = (data) =>
 {
-	if(data !='')
+	if(data !== '')
 	{
-		if(typeof data[1].values !== 'undefined'){
+		if(typeof data.values !== 'undefined'){
 
-			if(data[1].labels != ''){
+			if(data.labels !== ''){
 				return true;
 			}
-			return false;
+			else
+				return false;
 		}
-		else
+		else if(data.value !== ''){
 
 			return true;
+		}
+		else
+			return false;
 	}
 	else
 	{

@@ -1,7 +1,8 @@
 import expect from 'expect';
 
 import { decod,
-	notNull
+	notNull,
+	notNullData
 	 } from '../../src/model';
 
 import  { data }  from './sensors_data'
@@ -19,11 +20,11 @@ describe('Sensor model tests', () => {
 			expect(notNull(decod(data)[i][0].type)).toBe(true);
 		});
 		it('Value/Values&Labels of object '+i+' shouldn\'t be null', () => {
-			expect(notNull(decod(data)[i][1].values)).toBe(true);
+			expect(notNullData(decod(data)[i][1])).toBe(true);
 		});
 		}
      });
-     describe('exactValue', () => {
+     describe('equalValue', () => {
 		for(let i = 0; i < decod(data).length; i++){
 			it('Id of object '+i+' should be equal to '+data[i].id, () => {
 				expect(decod(data)[i][0].id).toBe(data[i].id);
